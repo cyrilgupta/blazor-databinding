@@ -1,0 +1,30 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<input @bind="currentCount" class="@inputClass"  />
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+
+
+@code {
+    private int currentCount = 0;
+    private string inputClass = "";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void ToggleClass()
+    {
+        inputClass = inputClass != "red" ? "red" : "";
+    }
+
+    public void DoAfter(int a) => currentCount++;
+}
